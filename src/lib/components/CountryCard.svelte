@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<th class="text-left font-bold after:content-[':_']">Yta</th>
-				<td>{countryData.SurfaceArea}</td>
+				<td>{new Intl.NumberFormat('sv-SE').format(countryData.Population)} m²</td>
 			</tr>
 		</tbody>
 	</table>
