@@ -1,19 +1,26 @@
 <script lang="ts">
-	import Country from '$lib/components/Country.svelte';
-	let { data } = $props();
+	import type { Country } from '$lib/types/index';
+	import CountryCard from '$lib/components/CountryCard.svelte';
+	import { onMount } from 'svelte';
+
+	async function getCountries() {
+		const url = 'https://data.egyweb.se/api/world/getcountries.php';
+		const respone = await fetch(url);
+		return respone.json();
+	}
 </script>
 
 <svelte:head>
 	<title>Länder i Asien</title>
 </svelte:head>
 
-<h1>Länder i Afrika</h1>
-<section>
-	{#if data}
-		{#each data.list as country}
-			<Country countryData={country} />
-		{/each}
-	{:else}
-		<p>Laddar data</p>
-	{/if}
-</section>
+<h1>Länder i Asien</h1>
+{#await getCountries()}
+	<p>Laddar från server...</p>
+{:then dataList}
+	{#each dataList as country}
+		<CountryCard countryData={country} />
+	{/each}
+{:catch error}
+	<p class="error">Fel: {error.message}</p>
+{/await}
