@@ -1,3 +1,5 @@
+<!-- Såhär vill jag visa data egentligen  -->
+
 <script>
   import Country from "$lib/components/Country.svelte";
   let {data} = $props();
