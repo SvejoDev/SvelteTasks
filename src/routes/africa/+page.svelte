@@ -1,7 +1,7 @@
 <!-- Såhär vill jag visa data egentligen  -->
 
 <script>
-  import Country from "$lib/components/Country.svelte";
+  import Country from "$lib/components/CountryCard.svelte";
   let {data} = $props();
 </script>
 

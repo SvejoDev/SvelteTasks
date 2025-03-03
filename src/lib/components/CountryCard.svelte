@@ -1,6 +1,7 @@
 <script>
-	export let countryData;
+	let { countryData } = $props();
 	const flagURL = '/flags/' + countryData.Code2.toLowerCase() + '.webp';
+	console.log(JSON.stringify(countryData));
 </script>
 
 <section class="rounded-md border border-black p-4 align-top">
@@ -10,7 +11,7 @@
 		<figcaption class="text-base">Flagga {countryData.Name}</figcaption>
 	</figure>
 
-	<table class="collapse text-sm">
+	<table>
 		<tbody>
 			<tr>
 				<th class="text-left font-bold after:content-[':_']">Namn (lokalt)</th>

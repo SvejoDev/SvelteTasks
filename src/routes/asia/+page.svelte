@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Country } from '$lib/types/index';
-	import CountryCard from '$lib/components/Country.svelte';
+	import CountryCard from '$lib/components/CountryCard.svelte';
 	import { onMount } from 'svelte';
 
 	async function getCountries() {
